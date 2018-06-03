@@ -1,0 +1,21 @@
+li a {
+	color: white;
+	font-family: 'Satisfy';
+}
+
+.navbar {
+	border-radius: 0;
+
+}
+
+.navbar-brand {
+	font-family: 'Satisfy';
+}
+
+.boxed {
+	border: 1px solid green ;
+}
+
+body {
+	background: white url("images/background.jpg");
+}

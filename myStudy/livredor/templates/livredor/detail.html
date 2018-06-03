@@ -1,0 +1,42 @@
+{% extends 'livredor/base.html' %}
+
+
+<!doctype html>
+<html lang="en">
+<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+<style>
+div {
+	background-color: lightgrey;
+	width: 300px;
+	border: 25px solid green;
+	padding: 25px;
+	margin: 25px;
+}
+</style>
+{% block body %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<br></br>
+<center>
+	<h2>Titre :</h2>
+	<div>{{ message.message_title }}</div>
+</center>
+<br></br>
+<center>
+	<h2>Message :</h2>
+	<div>{{ message.message_text }}</div>
+</center>
+<br></br>
+<center>
+	<h2>Signature :</h2>
+	<div>{{ message.signature }}</div>
+</center>
+<br></br>
+{% if message.user == request.user %}
+<center>
+	<a href="{% url 'livredor:create_message' %}">Modifier le message</a>
+	<br></br>
+	<a href="{% url 'livredor:delete_message' message.id %}">Effacer le message</a>
+</center>
+{% endif %}
+</html>
+{% endblock %}

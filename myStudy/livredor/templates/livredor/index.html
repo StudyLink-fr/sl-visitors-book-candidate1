@@ -1,0 +1,40 @@
+{% extends 'livredor/base.html' %}
+
+<!doctype html>
+<html lang="en">
+{% block body %}
+{% if latest_message_list %}
+<center>
+	<div class"container-fluid mx-auto" style="width:50%">
+		{% for message in latest_message_list %}
+			<div class="row">
+				<div class="col-sm">
+					<div class="shadow p-4 mb-4 bg-white">
+						<div class="text-truncate" style="max-width:90%">
+							<h4>
+								<a href="{% url 'livredor:detail' message.id %}">{{ message.message_title }}</a>
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</center>
+{% else %}
+<center>
+	<div class"container mx-auto" style="width:50%">
+		<div class="row">
+			<div class="col-sm">
+				<div class="shadow p-4 mb-4 bg-white">
+ 					<h4>
+						<a href="{% url 'livredor:create_message' %}">Aucun message à afficher.</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</center>
+{% endif %}
+</html>
+{% endblock %}
